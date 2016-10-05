@@ -3,13 +3,7 @@
   "version": "0.1.0",
   "description": "A super simple way to get esnext code up and running for modules",
   "bin": {
-    "sfc": "src/lint.js"
-  },
-  "scripts": {
-    "test": "sfc test && sfc lint",
-    "prepublish": "sfc build",
-    "build": "sfc build",
-    "exec": "sfc run"
+    "sfc": "src/index.js"
   },
   "author": "queicherius@gmail.com",
   "license": "MIT",
