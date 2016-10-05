@@ -2,6 +2,7 @@
   "name": "simple-future-code",
   "version": "0.1.0",
   "description": "A super simple way to get esnext code up and running for modules",
+  "main": "src/index.js",
   "bin": {
     "sfc": "src/index.js"
   },

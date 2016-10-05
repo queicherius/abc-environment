@@ -5,9 +5,9 @@ var path = require('path')
 var mkdirp = require('mkdirp')
 
 var templates = {
-  travis: fs.readFileSync(path.resolve(__dirname, 'templates/.travis.yml'), 'utf-8'),
-  gitignore: fs.readFileSync(path.resolve(__dirname, 'templates/.gitignore'), 'utf-8'),
-  babelrc: fs.readFileSync(path.resolve(__dirname, 'templates/.babelrc'), 'utf-8'),
+  travis: fs.readFileSync(path.resolve(__dirname, 'templates/travis.yml'), 'utf-8'),
+  gitignore: fs.readFileSync(path.resolve(__dirname, 'templates/gitignore'), 'utf-8'),
+  babelrc: fs.readFileSync(path.resolve(__dirname, 'templates/babelrc'), 'utf-8'),
   cli: fs.readFileSync(path.resolve(__dirname, 'templates/cli.js'), 'utf-8'),
   srcDemo: fs.readFileSync(path.resolve(__dirname, 'templates/src-index.js'), 'utf-8'),
   testsDemo: fs.readFileSync(path.resolve(__dirname, 'templates/tests-index.spec.js'), 'utf-8')
@@ -20,7 +20,7 @@ module.exports = function () {
   try {
     fs.accessSync('package.json', fs.F_OK)
   } catch (err) {
-    log.warning('`package.json` not found. Please run `npm init` first. Aborting.')
+    log.error('`package.json` not found. Please run `npm init` first.')
     return
   }
 
@@ -28,8 +28,8 @@ module.exports = function () {
   var packageJson = fs.readFileSync('package.json', 'utf-8')
   packageJson = JSON.parse(packageJson)
   if (Object.keys(packageJson.devDependencies || []).indexOf('simple-future-code') === -1) {
-    log.warning('devDependency to `simple-future-code` not found in `package.json`.')
-    log.warning('If you are using a global install, this could lead to CI builds failing.')
+    log.error('`simple-future-code` not found in `package.json` devDependencies.')
+    return
   }
 
   // Make sure the directories exist
