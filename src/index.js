@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 var argv = process.argv.splice(2)
-var chalk = require('chalk')
+var log = require('./helpers/log.js')
 var whitelist = ['build', 'run', 'test', 'lint', 'setup']
 
 if (whitelist.indexOf(argv[0]) === -1) {
-  console.log(chalk.magenta('🚀  Command `' + argv[0] + '` does not exist'))
+  log.error('Command `' + argv[0] + '` does not exist')
   process.exit(1)
 }
 

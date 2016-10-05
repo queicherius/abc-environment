@@ -1,70 +1,74 @@
+var log = require('./helpers/log.js')
 var exec = require('exec-sh')
-var chalk = require('chalk')
 var fs = require('fs')
+var path = require('path')
 var mkdirp = require('mkdirp')
 
-var travisFile = `language: node_js
-node_js:
-  - "6"
-after_script: "$(npm bin)/codecov"
-branches:
-  only:
-    - master`
-
-var ignoreFile = `# Logs
-npm-debug.log*
-
-# Coverage directories
-coverage/
-.nyc_output/
-
-# Compiled code
-build/
-
-# Dependencies
-node_modules/
-
-# Optional npm cache directory
-.npm/
-
-# Webflow
-.idea/
-
-# Operating System
-.DS_Store`
+var templates = {
+  travis: fs.readFileSync(path.resolve(__dirname, 'templates/.travis.yml'), 'utf-8'),
+  gitignore: fs.readFileSync(path.resolve(__dirname, 'templates/.gitignore'), 'utf-8'),
+  babelrc: fs.readFileSync(path.resolve(__dirname, 'templates/.babelrc'), 'utf-8'),
+  cli: fs.readFileSync(path.resolve(__dirname, 'templates/cli.js'), 'utf-8'),
+  srcDemo: fs.readFileSync(path.resolve(__dirname, 'templates/src-index.js'), 'utf-8'),
+  testsDemo: fs.readFileSync(path.resolve(__dirname, 'templates/tests-index.spec.js'), 'utf-8')
+}
 
 module.exports = function () {
-  console.log(chalk.magenta('🚀  Running setup'))
+  log.info('Running setup')
 
+  // Check if the package.json exists
+  try {
+    fs.accessSync('package.json', fs.F_OK)
+  } catch (err) {
+    log.warning('`package.json` not found. Please run `npm init` first. Aborting.')
+    return
+  }
+
+  // Check if we are in the dependencies
+  var packageJson = fs.readFileSync('package.json', 'utf-8')
+  packageJson = JSON.parse(packageJson)
+  if (Object.keys(packageJson.devDependencies || []).indexOf('simple-future-code') === -1) {
+    log.warning('devDependency to `simple-future-code` not found in `package.json`.')
+    log.warning('If you are using a global install, this could lead to CI builds failing.')
+  }
+
+  // Make sure the directories exist
   mkdirp.sync('./src')
   mkdirp.sync('./tests')
-  console.log(chalk.magenta('🚀  Created `src/` and `tests/` directories'))
+  log.info('Created `src/` and `tests/` directories')
 
-  fs.writeFileSync('.travis.yml', travisFile, 'utf-8')
-  console.log(chalk.magenta('🚀  Created `.travis.yml`'))
+  // Create some demo files if the directories are empty
+  if (fs.readdirSync('./src').length === 0 && fs.readdirSync('./tests').length === 0) {
+    fs.writeFileSync('src/index.js', templates.srcDemo, 'utf-8')
+    fs.writeFileSync('tests/index.spec.js', templates.testsDemo, 'utf-8')
+    log.info('Empty project, created demo module files')
+  }
 
-  fs.writeFileSync('.gitignore', ignoreFile, 'utf-8')
-  fs.writeFileSync('.npmignore', ignoreFile.replace(/build\//, 'src/').replace('# Compiled code', '# Source code'), 'utf-8')
-  console.log(chalk.magenta('🚀  Created `.gitignore` & `.npmignore`'))
+  // Create travis.yml
+  fs.writeFileSync('.travis.yml', templates.travis, 'utf-8')
+  log.info('Created `.travis.yml`')
 
-  fs.writeFileSync('.babelrc', `{
- "presets": ["es2015", "stage-0"],
- "env": {"test": {"plugins": ["istanbul", "rewire"]}}
-}`, 'utf-8')
-  console.log(chalk.magenta('🚀  Created `.babelrc`'))
+  // Create .gitignore & .npmignore
+  fs.writeFileSync('.gitignore', templates.gitignore, 'utf-8')
+  fs.writeFileSync('.npmignore', templates.gitignore.replace(/build\//, 'src/').replace('# Compiled code', '# Source code'), 'utf-8')
+  log.info('Created `.gitignore` & `.npmignore`')
 
-  // TODO instead, write a single file that moves the command to the internal thing
-  // var packageJson = fs.readFileSync('package.json', 'utf-8')
-  // packageJson = JSON.parse(packageJson)
-  //
-  // packageJson.scripts = packageJson.scripts || {}
-  // packageJson.scripts['prepublish'] = 'sfc build'
-  // packageJson.scripts['build'] = 'sfc build'
-  // packageJson.scripts['test'] = 'sfc test && sfc lint'
-  // packageJson.scripts['exec'] = 'sfc run'
-  //
-  // fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2), 'utf-8')
-  // console.log(chalk.magenta('🚀  Updated `package.json`'))
+  // Create .babelrc
+  fs.writeFileSync('.babelrc', templates.babelrc, 'utf-8')
+  log.info('Created `.babelrc`')
 
-  console.log(chalk.magenta('🚀  Done! It\'s your turn to diff & commit now!'))
+  // Create CLI script
+  fs.writeFileSync('sfc', templates.cli, 'utf-8')
+  exec('chmod +x sfc')
+  log.info('Created `sfc` CLI script')
+
+  // Write npm script into package.json
+  packageJson.scripts = packageJson.scripts || {}
+  packageJson.scripts['prepublish'] = 'sfc build'
+  packageJson.scripts['build'] = 'sfc build'
+  packageJson.scripts['test'] = 'sfc test && sfc lint'
+  fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2), 'utf-8')
+  log.info('Updated `package.json` scripts')
+
+  log.success('Done! It\'s your turn to diff & commit now!')
 }
