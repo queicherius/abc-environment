@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require('simple-future-code')
+require('abc-environment')

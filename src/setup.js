@@ -27,8 +27,8 @@ module.exports = function () {
   // Check if we are in the dependencies
   var packageJson = fs.readFileSync('package.json', 'utf-8')
   packageJson = JSON.parse(packageJson)
-  if (Object.keys(packageJson.devDependencies || []).indexOf('simple-future-code') === -1) {
-    log.error('`simple-future-code` not found in `package.json` devDependencies.')
+  if (Object.keys(packageJson.devDependencies || []).indexOf('abc-environment') === -1) {
+    log.error('`abc-environment` not found in `package.json` devDependencies.')
     return
   }
 
@@ -58,15 +58,15 @@ module.exports = function () {
   log.info('Created `.babelrc`')
 
   // Create CLI script
-  fs.writeFileSync('sfc', templates.cli, 'utf-8')
-  exec('chmod +x sfc')
-  log.info('Created `sfc` CLI script')
+  fs.writeFileSync('abc', templates.cli, 'utf-8')
+  exec('chmod +x abc')
+  log.info('Created `abc` CLI script')
 
   // Write npm script into package.json
   packageJson.scripts = packageJson.scripts || {}
-  packageJson.scripts['prepublish'] = 'sfc build'
-  packageJson.scripts['build'] = 'sfc build'
-  packageJson.scripts['test'] = 'sfc test && sfc lint'
+  packageJson.scripts['prepublish'] = 'abc build'
+  packageJson.scripts['build'] = 'abc build'
+  packageJson.scripts['test'] = 'abc test && abc lint'
   fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2), 'utf-8')
   log.info('Updated `package.json` scripts')
 

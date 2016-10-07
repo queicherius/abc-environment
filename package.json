@@ -1,10 +1,10 @@
 {
-  "name": "simple-future-code",
+  "name": "abc-environment",
   "version": "0.1.0",
   "description": "A super simple way to get esnext code up and running for modules",
   "main": "src/index.js",
   "bin": {
-    "sfc": "src/index.js"
+    "abc": "src/index.js"
   },
   "author": "queicherius@gmail.com",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "babel-eslint": "^6.1.2",
     "babel-plugin-istanbul": "^2.0.0",
     "babel-plugin-rewire": "^1.0.0",
-    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-latest": "^6.16.0",
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
     "chalk": "^1.1.3",
