@@ -47,7 +47,7 @@ The created directories and files are:
 - `src/index.js` - Demo module file (if `src/` is empty)
 - `tests/` - Directory for your tests
 - `tests/index.spec.js` - Demo test file (if `tests/` is empty)
-- `.babelrc` - Manages the Babel configuration throughout the whole project
+- `.babelrc` - Manages the Babel configuration throughout the whole project <sup>[1](#footnote1)</sup>
 - `.gitignore` - Makes sure that you don't commit dependency files into version control
 - `.npmignore` - Makes sure that you only release the built files into npm
 - `.travis.yml` - Handles continuous integration with [Travis](https://travis-ci.org/)
@@ -94,3 +94,7 @@ The created directories and files are:
 ## Licence
 
 MIT
+
+---
+
+<a name="footnote1">[1]</a>: Sadly this is required, because [Mocha provides no way to configure Babel](http://jamesknelson.com/testing-in-es6-with-mocha-and-babel-6/)
