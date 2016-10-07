@@ -15,7 +15,7 @@
 
 ```bash
 # Install the module
-npm install abc-environment
+npm install --save-dev abc-environment
 
 # Run the setup
 node_modules/.bin/abc setup
