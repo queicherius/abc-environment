@@ -25,8 +25,12 @@ git add ...
 git commit ...
 
 # ...and run commands directly
-./abc test
+node_modules/.bin/abc test
 npm test
+
+# Tip: Create an alias for "abc" to have an even shorter command
+echo "alias abc='node_modules/.bin/abc'" >> ~/.bashrc && source ~/.bashrc
+abc test
 ```
 
 ## Commands
@@ -47,7 +51,6 @@ The created directories and files are:
 - `.gitignore` - Makes sure that you don't commit dependency files into version control
 - `.npmignore` - Makes sure that you only release the built files into npm
 - `.travis.yml` - Handles continuous integration with [Travis](https://travis-ci.org/)
-- `abc` - CLI script for easily running commands
 - `package.json` - Adds three npm scripts:
   - `npm test` - Runs the `test` and `lint` commands
   - `npm run build` - Runs the `build` command

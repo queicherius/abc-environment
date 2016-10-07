@@ -8,7 +8,6 @@ var templates = {
   travis: fs.readFileSync(path.resolve(__dirname, 'templates/travis.yml'), 'utf-8'),
   gitignore: fs.readFileSync(path.resolve(__dirname, 'templates/gitignore'), 'utf-8'),
   babelrc: fs.readFileSync(path.resolve(__dirname, 'templates/babelrc'), 'utf-8'),
-  cli: fs.readFileSync(path.resolve(__dirname, 'templates/cli.js'), 'utf-8'),
   srcDemo: fs.readFileSync(path.resolve(__dirname, 'templates/src-index.js'), 'utf-8'),
   testsDemo: fs.readFileSync(path.resolve(__dirname, 'templates/tests-index.spec.js'), 'utf-8')
 }
@@ -56,11 +55,6 @@ module.exports = function () {
   // Create .babelrc
   fs.writeFileSync('.babelrc', templates.babelrc, 'utf-8')
   log.info('Created `.babelrc`')
-
-  // Create CLI script
-  fs.writeFileSync('abc', templates.cli, 'utf-8')
-  exec('chmod +x abc')
-  log.info('Created `abc` CLI script')
 
   // Write npm script into package.json
   packageJson.scripts = packageJson.scripts || {}
