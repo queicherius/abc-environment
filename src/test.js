@@ -8,6 +8,7 @@ module.exports = function () {
 
   log.info('Running tests in `tests/`')
   exec(command, function (err) {
+    log.info('Tests finished. Check your coverage via coverage/lcov-report/index.html')
     if (err) process.exit(1)
   })
 }

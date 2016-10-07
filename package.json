@@ -1,7 +1,7 @@
 {
   "name": "abc-environment",
   "version": "0.1.0",
-  "description": "A super simple way to get esnext code up and running for modules",
+  "description": "Get started with modern JavaScript development as simple as the ABC",
   "main": "src/index.js",
   "bin": {
     "abc": "src/index.js"
