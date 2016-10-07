@@ -1,8 +1,7 @@
 var chalk = require('chalk')
 
 module.exports = {
-  info: (string) => console.log(chalk.magenta('🚀  ' + string)),
-  warning: (string) => console.log(chalk.yellow('⚠️  ' + string)),
+  info: (string) => console.log(chalk.blue('⏳  ' + string)),
   error: (string) => console.log(chalk.red('⛔️  ' + string)),
-  success: (string) => console.log(chalk.green('✓ ' + string))
+  success: (string) => console.log(chalk.green('👍  ' + string))
 }
