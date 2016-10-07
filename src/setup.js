@@ -1,5 +1,4 @@
 var log = require('./helpers/log.js')
-var exec = require('exec-sh')
 var fs = require('fs')
 var path = require('path')
 var mkdirp = require('mkdirp')
