@@ -35,7 +35,7 @@ abc test
 
 ## Commands
 
-### abc setup
+### `abc setup`
 
 **Creates the directories and files for the whole project to run.** This will modify files, so only run it on empty or version-controlled projects.
 
@@ -56,19 +56,19 @@ The created directories and files are:
   - `npm run build` - Runs the `build` command
   - `npm run prepublish` - Runs the `build` command when you publish a new version of your code to npm
 
-### abc build
+### `abc build`
 
 **Compiles the source files from `src/` into a `build/` directory.** Thanks to this, you can use the latest language features of JavaScript and compile them into JavaScript that runs in older browsers or older versions of Node. You can find an overview of all the new language features [here](https://babeljs.io/docs/plugins/preset-stage-0/) and [here](http://babeljs.io/docs/plugins/preset-latest/).
 
-### abc test
+### `abc test`
 
 **Runs the test files in the `tests/` directory.** Using unit tests, you can check if your module always works in the way you expect it to. You can also see which parts of your code are covered by your tests by opening the generated `coverage/lcov-report/index.html` in your browser.
 
-### abc lint
+### `abc lint`
 
 **Checks if your code is consistent and follows best practices.** By using a linter you can ensure that all your code looks the same, even if it was written by different developers. Linting also helps to catch common errors. This module uses the [standard](http://standardjs.com/) style guide.
 
-### abc run src/file.js
+### `abc run src/file.js`
 
 **Runs a specified file.** Because we are using compiled code, it can get tedious if you have to run `build` before you can run your code. Using the `run` command, you can just specify the file and get it compiled and executed in one single step. *This is used for development purposes, in production you should always use the compiled files generated using the `build` command!*
 
