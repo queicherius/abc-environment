@@ -81,6 +81,7 @@ The created directories and files are:
 - **Testing**
   - [`mocha`](https://github.com/mochajs/mocha) - Simple & flexible test framework
   - [`chai`](https://github.com/chaijs/chai) - BDD / TDD assertion framework
+  - [`sinon`](https://github.com/sinonjs/sinon) - Test spies and stubs
   - [`nyc`](https://github.com/istanbuljs/nyc) - Code coverage tool
   - [`babel-plugin-istanbul`](https://github.com/istanbuljs/babel-plugin-istanbul) - Instruments your code with Istanbul coverage
   - [`babel-plugin-rewire`](https://github.com/speedskater/babel-plugin-rewire) - Adds the ability to rewire module dependencies
