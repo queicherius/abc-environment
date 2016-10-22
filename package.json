@@ -1,6 +1,6 @@
 {
   "name": "abc-environment",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Get started with modern JavaScript development as simple as the ABC",
   "main": "src/index.js",
   "bin": {
