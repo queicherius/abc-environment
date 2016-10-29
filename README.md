@@ -54,7 +54,7 @@ The created directories and files are:
 - `package.json` - Adds three npm scripts:
   - `npm test` - Runs the `test` and `lint` commands
   - `npm run build` - Runs the `build` command
-  - `npm run prepublish` - Runs the `build` command when you publish a new version of your code to npm
+  - `npm run version` - Runs the `build` command when you publish a new version of your package to npm (e.g. using [`np`](https://github.com/sindresorhus/np) or [`npm-release`](https://github.com/phuu/npm-release))
 
 ### `abc build`
 
