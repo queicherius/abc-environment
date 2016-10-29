@@ -4,11 +4,11 @@ var path = require('path')
 var mkdirp = require('mkdirp')
 
 var templates = {
-  travis: fs.readFileSync(path.resolve(__dirname, 'templates/travis.yml'), 'utf-8'),
-  gitignore: fs.readFileSync(path.resolve(__dirname, 'templates/gitignore'), 'utf-8'),
-  babelrc: fs.readFileSync(path.resolve(__dirname, 'templates/babelrc'), 'utf-8'),
-  srcDemo: fs.readFileSync(path.resolve(__dirname, 'templates/src-index.js'), 'utf-8'),
-  testsDemo: fs.readFileSync(path.resolve(__dirname, 'templates/tests-index.spec.js'), 'utf-8')
+  travis: fs.readFileSync(path.join(__dirname, 'templates/travis.yml'), 'utf-8'),
+  gitignore: fs.readFileSync(path.join(__dirname, 'templates/gitignore'), 'utf-8'),
+  babelrc: fs.readFileSync(path.join(__dirname, 'templates/babelrc'), 'utf-8'),
+  srcDemo: fs.readFileSync(path.join(__dirname, 'templates/src-index.js'), 'utf-8'),
+  testsDemo: fs.readFileSync(path.join(__dirname, 'templates/tests-index.spec.js'), 'utf-8')
 }
 
 module.exports = function () {

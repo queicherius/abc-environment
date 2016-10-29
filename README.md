@@ -11,7 +11,7 @@
 
 ## Install
 
-> This module only works with Node v6+ and npm v3+, which are the current LTS versions. Please make sure you are running the right versions via `node -v && npm -v` and update if needed.
+> This module only works with Node v6+ and npm v3+ (or [yarn](https://github.com/yarnpkg/yarn)), which are the current LTS versions. Please make sure you are running the right versions via `node -v && npm -v` and update if needed.
 
 ```bash
 # Install the module

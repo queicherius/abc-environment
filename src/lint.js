@@ -1,8 +1,10 @@
 var log = require('./helpers/log.js')
-var exec = require('exec-sh')
+var bin = require('./helpers/bin.js')
+var root = require('./helpers/root.js')
+var exec = require('./helpers/exec.js')
 
 module.exports = function () {
-  var command = 'NODE_ENV=development $(npm bin)/snazzy {src,tests,.}/**/*.js --parser babel-eslint'
+  var command = 'NODE_ENV=development ' + bin('snazzy') + ' ' + root + '{src,tests,.}/**/*.js --parser babel-eslint'
 
   log.info('Running lint')
   exec(command, function (err) {
