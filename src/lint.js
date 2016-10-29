@@ -4,7 +4,7 @@ var root = require('./helpers/root.js')
 var exec = require('./helpers/exec.js')
 
 module.exports = function () {
-  var command = 'NODE_ENV=development ' + bin('snazzy') + ' ' + root + '{src,tests,.}/**/*.js --parser babel-eslint'
+  var command = 'NODE_ENV=development ' + bin('standard') + ' ' + root + '{src,tests,.}/**/*.js --parser babel-eslint | ' + bin('snazzy')
 
   log.info('Running lint')
   exec(command, function (err) {
