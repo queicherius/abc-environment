@@ -26,7 +26,7 @@
     "exec-sh": "0.2.0",
     "mkdirp": "0.5.1",
     "mocha": "3.1.0",
-    "nyc": "8.4.0",
+    "nyc": "8.4.0-candidate",
     "sinon": "1.17.6",
     "snazzy": "5.0.0",
     "standard": "8.5.0"
