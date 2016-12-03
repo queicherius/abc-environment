@@ -6,7 +6,7 @@ var exec = require('./helpers/exec.js')
 module.exports = function () {
   var nyc = bin('nyc') + ' --all --only="' + root + 'src/" --require babel-core/register --require babel-polyfill --sourceMap=false --instrument=false --reporter=lcov --reporter=text-summary --report-dir=' + root + 'coverage/'
   var mocha = bin('mocha') + ' ' + root + 'tests/*'
-  var command = 'NODE_ENV=test ' + nyc + ' ' + mocha
+  var command = bin('cross-env') + ' NODE_ENV=test ' + nyc + ' ' + mocha
 
   log.info('Running tests in `tests/`')
   exec(command, function (err) {
