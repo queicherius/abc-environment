@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "babel-cli": "6.18.0",
-    "babel-eslint": "7.1.0",
-    "babel-plugin-istanbul": "2.0.3",
+    "babel-eslint": "7.1.1",
+    "babel-plugin-istanbul": "3.0.0",
     "babel-plugin-rewire": "1.0.0",
     "babel-preset-latest": "6.16.0",
     "babel-preset-stage-0": "6.16.0",
@@ -26,10 +26,10 @@
     "debug": "^2.2.0",
     "exec-sh": "0.2.0",
     "mkdirp": "0.5.1",
-    "mocha": "3.1.2",
-    "nyc": "8.4.0-candidate",
-    "sinon": "1.17.6",
+    "mocha": "3.2.0",
+    "nyc": "10.0.0",
+    "sinon": "2.0.0-pre.4",
     "snazzy": "5.0.0",
-    "standard": "8.5.0"
+    "standard": "8.6.0"
   }
 }
