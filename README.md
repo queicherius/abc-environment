@@ -39,7 +39,7 @@ abc test
 
 **Creates the directories and files for the whole project to run.** This will modify files, so only run it on empty or version-controlled projects.
 
-⚠️ When updating this module to the next higher major version number, make sure to run the `setup` command again to get the newest files!
+⚠️ When updating this module to the next higher minor version number, it is recommended to run the `setup` command again to get the newest files! When updating to the next major number, running `setup` is required.
 
 The created directories and files are:
 
@@ -87,9 +87,11 @@ The created directories and files are:
 - **Linting**
   - [`snazzy`](https://github.com/feross/snazzy) - One JavaScript Style Guide to Rule Them All
   - [`babel-eslint`](https://github.com/babel/babel-eslint) - Lint all valid Babel code, including `stage-0`
-- **Continuous Integration**
+- **Continuous Integration (optional, but recommended)**
   - [Travis](https://travis-ci.org/) - Continuous integration service
   - [`codecov`](https://github.com/codecov/codecov-node) - Code coverage badges in your repository
+  - [GreenKeeper](https://greenkeeper.io/) - Automatic PRs for npm dependencies
+  - [`np`](https://github.com/sindresorhus/np) - A better `npm publish`
 
 ## Licence
 
