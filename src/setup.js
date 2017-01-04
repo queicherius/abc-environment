@@ -59,7 +59,7 @@ module.exports = function () {
   packageJson.scripts = packageJson.scripts || {}
   packageJson.scripts['build'] = 'abc build'
   packageJson.scripts['test'] = 'abc test && abc lint'
-  fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2), 'utf-8')
+  fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2) + '\n', 'utf-8')
   log.info('Updated `package.json` scripts')
 
   log.success('Done! It\'s your turn to diff & commit now!')
