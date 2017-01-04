@@ -1,2 +1,22 @@
-.idea
-node_modules
+# Logs
+npm-debug.log*
+
+# Coverage directories
+coverage/
+.nyc_output/
+
+# Compiled code
+build/
+
+# Dependencies
+node_modules/
+
+# Optional npm cache directory
+.npm/
+
+# Webflow
+.idea/
+
+# Operating System
+.DS_Store
+Thumbs.db

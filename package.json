@@ -6,6 +6,9 @@
   "bin": {
     "abc": "src/index.js"
   },
+  "scripts": {
+    "test": "sh tests/run-test.sh"
+  },
   "author": "queicherius@gmail.com",
   "license": "MIT",
   "repository": {
