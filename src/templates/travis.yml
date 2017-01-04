@@ -5,4 +5,4 @@ after_script: "$(npm bin)/codecov"
 branches:
   only:
     - master
-    - /^greenkeeper-.*$/
+    - /^greenkeeper.*$/
