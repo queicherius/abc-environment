@@ -57,8 +57,9 @@ module.exports = function () {
 
   // Write npm script into package.json
   packageJson.scripts = packageJson.scripts || {}
-  packageJson.scripts['build'] = 'abc build'
   packageJson.scripts['test'] = 'abc test && abc lint'
+  packageJson.scripts['build'] = 'abc build'
+  packageJson.scripts['version'] = 'abc build'
   fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2) + '\n', 'utf-8')
   log.info('Updated `package.json` scripts')
 
