@@ -64,9 +64,9 @@ The created directories and files are:
 
 **Runs the test files in the `tests/` directory.** Using unit tests, you can check if your module always works in the way you expect it to. You can also see which parts of your code are covered by your tests by opening the generated `coverage/lcov-report/index.html` in your browser.
 
-### `abc lint`
+### `abc lint [--fix]`
 
-**Checks if your code is consistent and follows best practices.** By using a linter you can ensure that all your code looks the same, even if it was written by different developers. Linting also helps to catch common errors. This module uses the [standard](http://standardjs.com/) style guide.
+**Checks if your code is consistent and follows best practices (and optionally fix issues).** By using a linter you can ensure that all your code looks the same, even if it was written by different developers. Linting also helps to catch common errors. This module uses the [standard](http://standardjs.com/) style guide.
 
 ### `abc run src/file.js`
 
