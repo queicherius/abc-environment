@@ -16,7 +16,7 @@
     "url": "https://github.com/queicherius/abc-environment"
   },
   "dependencies": {
-    "babel-cli": "6.24.0",
+    "babel-cli": "6.24.1",
     "babel-eslint": "7.2.0",
     "babel-plugin-istanbul": "4.1.1",
     "babel-plugin-rewire": "1.0.0",
