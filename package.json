@@ -24,7 +24,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "chai": "^4.0.2",
     "chalk": "2.2.0",
-    "codecov": "^2.2.0",
+    "codecov": "^3.0.3",
     "cross-env": "^5.0.1",
     "debug": "^3.0.0",
     "exec-sh": "0.2.1",
