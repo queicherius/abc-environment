@@ -1,3 +1,7 @@
+**Careful: This package is no loger maintained. This means you should very likely not use it. You have been warned.**
+
+---
+
 # abc-environment
 
 > Get started with modern JavaScript development as simple as the ABC
